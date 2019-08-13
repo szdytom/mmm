@@ -8,8 +8,14 @@
 body {
   background:#8fbc8f;
 }
+
+#b1 {
+  height: 40px;
+  width: 40px;
+}
+  
 p {
-  align:center;
+  text-align:center
 }
 </style>
 <p>Here Is The Aera To Mo szTom</p>
@@ -23,8 +29,8 @@ var count = 0;
 function setPositionAbsolute()
 {
 document.getElementById("b1").style.position="absolute";
-document.getElementById("b1").style.top=Math.random()*document.body.clientHeight + "px";
-document.getElementById("b1").style.left=Math.random()*document.body.clientWidth +"px";
+document.getElementById("b1").style.top=(Math.random()*document.body.clientHeight-50) + "px";
+document.getElementById("b1").style.left=(Math.random()*document.body.clientWidth-50) +"px";
 count+=1;
 document.getElementById("count").innerHTML = "您已膜拜" + count + "次";
 }
