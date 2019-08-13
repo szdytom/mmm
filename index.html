@@ -1,30 +1,33 @@
 <html>
 <head>
-<style type="text/css">
-input
-{
-position:relative;
-}
-</style>
-<script type="text/javascript">
-var count = 0;
-function setPositionAbsolute()
-{
-document.getElementById("b1").style.position="absolute";
-document.getElementById("b1").style.top=Math.random()*1000+"px";
-document.getElementById("b1").style.left=Math.random()*1000+"px";
-count+=1;
-document.getElementById("count").innerHTML = "您已膜拜" + count + "次";
-}
-</script>
+
+  <title>膜拜szTom</title>
 </head>
 <body>
-
+<style type="text/css">
+body {
+  background:light-green;
+  }
+p {
+  margin: 0 auto;
+}
+</style>
 <p>Here Is The Aera To Mo szTom</p>
 <p id="count">您已膜拜0次</p>
 
 <input type="button" id="b1" onclick="setPositionAbsolute()"
 value="膜拜szTom" />
+<script type="text/javascript">
+var count = 0;
 
+function setPositionAbsolute()
+{
+document.getElementById("b1").style.position="absolute";
+document.getElementById("b1").style.top=Math.random()*document.body.clientHeight + "px";
+document.getElementById("b1").style.left=Math.random()*document.body.clientWidth +"px";
+count+=1;
+document.getElementById("count").innerHTML = "您已膜拜" + count + "次";
+}
+</script>
 </body>
 </html>
