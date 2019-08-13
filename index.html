@@ -60,13 +60,10 @@ function getCookie(cname) {
 }
 
 var count = 0;
-
-window.onload = function() {
-	var w = getCookie("moTime")
-	if (w != "") {
-		count = parseInt(uncompileStr(w));
-	}
-};
+var w = getCookie("moTime")
+if (w != "") {
+	count = parseInt(uncompileStr(w));
+}
 
 function setPositionAbsolute() {
     document.getElementById("b1").style.position = "absolute";
