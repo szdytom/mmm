@@ -71,8 +71,8 @@ window.onload = function() {
 
 function setPositionAbsolute() {
     document.getElementById("b1").style.position = "absolute";
-    document.getElementById("b1").style.top = (Math.random() * (document.body.clientHeight - 50) + 50) + "px";
-    document.getElementById("b1").style.left = (Math.random() * (document.body.clientWidth - 100) + 100) + "px";
+    document.getElementById("b1").style.top = (Math.random() * 12345679 % (document.body.clientHeight - 100) + 50) + "px";
+    document.getElementById("b1").style.left = (Math.random() * 12345679 % (document.body.clientWidth - 150) + 100) + "px";
     count += parseInt(Math.log2(count+10));
     document.getElementById("count").innerHTML = "您已膜拜" + count + "次"
     if (count % 5 == 0) {
