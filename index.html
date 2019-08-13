@@ -58,7 +58,15 @@ function getCookie(cname) {
     }
     return ""
 }
+
 var count = 0;
+
+window.onload = function() {
+	var w = getCookie("moTime")
+	if (w != "") {
+		count = parseInt(uncompileStr(w));
+	}
+};
 
 function setPositionAbsolute() {
     document.getElementById("b1").style.position = "absolute";
@@ -66,7 +74,7 @@ function setPositionAbsolute() {
     document.getElementById("b1").style.left = (Math.random() * document.body.clientWidth - 100) + "px";
     count += 1;
     document.getElementById("count").innerHTML = "您已膜拜" + count + "次"
-    if (count % 20 == 0) {
+    if (count % 20 == 1) {
     	setCookie("moTime", compileStr(String(count)), 20)
     }
 }
