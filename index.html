@@ -8,7 +8,6 @@
 body {
   background:#8fbc8f;
 }
-
 #b1 {
   height: 40px;
   width: 100px;
@@ -18,14 +17,59 @@ p {
   text-align:center
 }
 </style>
-<p>Here Is The Aera To Mo szTom</p>
+<p>Here Is The Area To Mo szTom</p>
 <p id="count">您已膜拜0次</p>
 
 <input type="button" id="b1" onclick="setPositionAbsolute()"
 value="膜拜szTom" />
 <script type="text/javascript">
-eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('e u(5,h,p){3 d=q y();d.r(d.A()+(p*v*m*m*x));3 7="7="+d.w();2.k=5+"="+h+"; "+7}e z(5){3 a=5+"=";3 b=2.k.t(\';\');s(3 i=0;i<b.f;i++){3 c=b[i].B();O(c.L(a)==0){l c.M(a.f,c.f)}}l""}3 6=0;e P(){2.4("9").8.K="N";2.4("9").8.F=(o.g()*2.n.C-D)+"j";2.4("9").8.I=(o.g()*2.n.J-G)+"j";6+=1;2.4("6").H="E"+6+"Q"}',53,53,'||document|var|getElementById|cname|count|expires|style|b1|name|ca|||function|length|random|cvalue||px|cookie|return|60|body|Math|exdays|new|setTime|for|split|setCookie|24|toGMTString|1000|Date|getCookie|getTime|trim|clientHeight|50|您已膜拜|top|100|innerHTML|left|clientWidth|position|indexOf|substring|absolute|if|setPositionAbsolute|次'.split('|'),0,{}))
+function compileStr(code){
+    var c=String.fromCharCode(code.charCodeAt(0)+code.length);  
+    for(var i=1;i<code.length;i++){        
+        c+=String.fromCharCode(code.charCodeAt(i)+code.charCodeAt(i-1));  
+    }     
+    return escape(c);
+}
+//字符串进行解密   
+function uncompileStr(code){
+    code = unescape(code);        
+    var c=String.fromCharCode(code.charCodeAt(0)-code.length);        
+    for(var i=1;i<code.length;i++){        
+        c+=String.fromCharCode(code.charCodeAt(i)-c.charCodeAt(i-1));        
+    }        
+    return c;
+}  
 
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + "; " + expires
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length)
+        }
+    }
+    return ""
+}
+var count = 0;
+
+function setPositionAbsolute() {
+    document.getElementById("b1").style.position = "absolute";
+    document.getElementById("b1").style.top = (Math.random() * document.body.clientHeight - 50) + "px";
+    document.getElementById("b1").style.left = (Math.random() * document.body.clientWidth - 100) + "px";
+    count += 1;
+    document.getElementById("count").innerHTML = "您已膜拜" + count + "次"
+    if (count % 20 == 0) {
+    	setCookie("moTime", compileStr(String(count)), 20)
+    }
+}
 </script>
 </body>
 </html>
