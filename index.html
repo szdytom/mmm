@@ -60,10 +60,14 @@ function getCookie(cname) {
 }
 
 var count = 0;
-var w = getCookie("moTime")
-if (w != "") {
-	count = parseInt(uncompileStr(w));
-}
+
+window.onload = function() {
+	var w = getCookie("moTime")
+	if (w != "") {
+		count = parseInt(uncompileStr(w));
+	}
+	document.getElementById("count").innerHTML = "您已膜拜" + count + "次"
+};
 
 function setPositionAbsolute() {
     document.getElementById("b1").style.position = "absolute";
