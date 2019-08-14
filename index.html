@@ -18,7 +18,7 @@ p {
 }
 </style>
 <p>Here Is The Area To Mo szTom</p>
-<p id="count">您已膜拜0次</p>
+<p id="ct">您已膜拜0次</p>
 <center><img src="./jrmx.gif"  alt="膜拜szTom" /></center>
 <input type="button" id="b1" onclick="setPositionAbsolute()"
 value="膜拜szTom" />
@@ -59,24 +59,25 @@ function getCookie(cname) {
     return ""
 }
 
-var count = 0;
+var ct = 0, vx = 0;
 
 window.onload = function() {
 	var w = getCookie("moTime")
 	if (w != "") {
-		count = parseInt(uncompileStr(w));
+		ct = parseInt(uncompileStr(w));
 	}
-	document.getElementById("count").innerHTML = "您已膜拜" + count + "次"
+	document.getElementById("ct").innerHTML = "您已膜拜" + ct + "次"
 };
 
 function setPositionAbsolute() {
     document.getElementById("b1").style.position = "absolute";
     document.getElementById("b1").style.top = (Math.random() * 12345679 % (document.body.clientHeight - 100) + 50) + "px";
     document.getElementById("b1").style.left = (Math.random() * 12345679 % (document.body.clientWidth - 200) + 100) + "px";
-    count += parseInt(Math.log2(count+10));
-    document.getElementById("count").innerHTML = "您已膜拜" + count + "次"
-    if (count % 5 == 0) {
-    	setCookie("moTime", compileStr(String(count)), 20)
+    ct += parseInt(Math.sqrt(ct+10));
+    vx += 1;
+    document.getElementById("ct").innerHTML = "您已膜拜" + ct + "次"
+    if (vx % 5 == 0) {
+    	setCookie("moTime", compileStr(String(ct)), 20)
     }
 }
 </script>
