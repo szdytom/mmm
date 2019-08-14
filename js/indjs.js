@@ -51,7 +51,7 @@ function setPositionAbsolute() {
     document.getElementById("b1").style.position = "absolute";
     document.getElementById("b1").style.top = (Math.random() * 12345679 % (document.body.clientHeight - 100) + 50) + "px";
     document.getElementById("b1").style.left = (Math.random() * 12345679 % (document.body.clientWidth - 200) + 100) + "px";
-    document.getElementById("b1").setAttribute("value","膜拜szTom")
+    document.getElementById("b1").setAttribute("value","膜拜FISHER_")
     if (ct != parseInt(uncompileStr(vxtt))) {
         setCookie("moTime", compileStr(String(0)), 20);
         ct = -10;
