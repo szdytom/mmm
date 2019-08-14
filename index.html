@@ -76,9 +76,7 @@ function setPositionAbsolute() {
     ct += parseInt(Math.sqrt(ct+10));
     vx += 1;
     document.getElementById("ct").innerHTML = "您已膜拜" + ct + "次"
-    if (vx % 5 == 0) {
-    	setCookie("moTime", compileStr(String(ct)), 20)
-    }
+    setCookie("moTime", compileStr(String(ct)), 20)
 }
 </script>
 </body>
