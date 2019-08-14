@@ -60,9 +60,10 @@ function getCookie(cname) {
 }
 
 var ct = 0, vx = 0;
+var vxtt = 0;
 
 window.onload = function() {
-	var w = getCookie("moTime")
+	vxtt = getCookie("moTime")
 	if (w != "") {
 		ct = parseInt(uncompileStr(w));
 	}
@@ -73,10 +74,17 @@ function setPositionAbsolute() {
     document.getElementById("b1").style.position = "absolute";
     document.getElementById("b1").style.top = (Math.random() * 12345679 % (document.body.clientHeight - 100) + 50) + "px";
     document.getElementById("b1").style.left = (Math.random() * 12345679 % (document.body.clientWidth - 200) + 100) + "px";
+    if (abs(parseInt(uncompileStr(w))) > 2 * Math.sqrt(ct+10)) {
+        ct = -10;
+        vxtt = -10;
+        document.getElementById("ct").innerHTML = "您已膜拜" + ct + "次";
+        alert("You Are Cheating!!!\nszTom knows everything!");
+        document.getElementById("b1").style = "display:none";
+    }
     ct += parseInt(Math.sqrt(ct+10));
     vx += 1;
     // wrong codes
-    document.getElementById("ct").innerHTML = "您已膜拜" + ct + "次"
+    document.getElementById("ct").innerHTML = "您已膜拜" + ct + "次";
     setCookie("moTime", compileStr(String(ct)), 20)
 }
 </script>
