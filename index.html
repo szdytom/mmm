@@ -77,12 +77,13 @@ function setPositionAbsolute() {
     if (abs(parseInt(uncompileStr(w))) > 2 * Math.sqrt(ct+10)) {
         ct = -10;
         vxtt = -10;
-        document.getElementById("ct").innerHTML = "您已膜拜" + ct + "次";
+        document.getElementById("ct").innerHTML = "您已膜拜-INFINATE次";
         alert("You Are Cheating!!!\nszTom knows everything!");
         document.getElementById("b1").style = "display:none";
     }
     ct += parseInt(Math.sqrt(ct+10));
     vx += 1;
+    vxtt = compileStr(String(ct));
     // wrong codes
     document.getElementById("ct").innerHTML = "您已膜拜" + ct + "次";
     setCookie("moTime", compileStr(String(ct)), 20)
