@@ -60,13 +60,15 @@ function getCookie(cname) {
 }
 
 var ct = 0, vx = 0;
-var vxtt = 0;
+var vxtt;
 
 window.onload = function() {
 	vxtt = getCookie("moTime")
-	if (w != "") {
-		ct = parseInt(uncompileStr(w));
-	}
+	if (vxtt != "") {
+		ct = parseInt(uncompileStr(vxtt));
+	} else {
+        vxtt = compileStr(String(0));
+    }
 	document.getElementById("ct").innerHTML = "您已膜拜" + ct + "次"
 };
 
@@ -74,7 +76,7 @@ function setPositionAbsolute() {
     document.getElementById("b1").style.position = "absolute";
     document.getElementById("b1").style.top = (Math.random() * 12345679 % (document.body.clientHeight - 100) + 50) + "px";
     document.getElementById("b1").style.left = (Math.random() * 12345679 % (document.body.clientWidth - 200) + 100) + "px";
-    if (abs(parseInt(uncompileStr(w))) > 2 * Math.sqrt(ct+10)) {
+    if (abs(parseInt(uncompileStr(vxtt))) > 2 * Math.sqrt(ct+10)) {
         ct = -10;
         vxtt = -10;
         document.getElementById("ct").innerHTML = "您已膜拜-INFINATE次";
