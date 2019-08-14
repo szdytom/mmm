@@ -79,7 +79,8 @@ function setPositionAbsolute() {
     if (Math.abs(ct - parseInt(uncompileStr(vxtt))) > 2 * Math.sqrt(ct+10)) {
         ct = -10;
         vxtt = -10;
-        document.getElementById("ct").innerHTML = "您已膜拜-INFINATE次";
+        document.getElementById("ct").innerHTML = "[作弊者]";
+        document.getElementById("ct").style.color = "brown";
         alert("You Are Cheating!!!\nszTom knows everything!");
         document.getElementById("b1").style.display = "none";
     } else {
